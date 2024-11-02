@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Vendas</title>
+</head>
+<body>
+    <h1>Análise de Vendas</h1>
+
+    <div>
+        <h2>Resumo Estatístico</h2>
+        <p><strong>Total de Vendas:</strong> {{ total_vendas }}</p>
+        <p><strong>Receita Total:</strong> R$ {{ receita_total|floatformat:2 }}</p>
+        <p><strong>Produto Mais Vendido:</strong> {{ produto_mais_vendido_nome }} (Quantidade Vendida: {{ quantidade_vendida }})</p>
+    </div>
+
+    <a href="{% url 'grafico_vendas' %}">Voltar para Gráficos de Vendas</a>
+    <a href="{% url 'home' %}">Voltar para Página Inicial</a>
+</body>
+</html>

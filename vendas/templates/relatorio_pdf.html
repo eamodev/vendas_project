@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Vendas</title>
+</head>
+<body>
+    <h1>Relatório de Vendas</h1>
+    <p>Total de Vendas: {{ total_vendas }}</p>
+    <p>Receita Total: {{ receita_total }}</p>
+    <p>Produto Mais Vendido: {{ produto_mais_vendido }}</p>
+    
+    <h2>Gráfico de Receita por Produto</h2>
+    <img src="data:image/png;base64,{{ grafico_receita }}" alt="Gráfico de Receita por Produto">
+
+    <h2>Evolução das Vendas ao Longo do Tempo</h2>
+    <img src="data:image/png;base64,{{ evolucao_vendas }}" alt="Evolução das Vendas">
+</body>
+</html>

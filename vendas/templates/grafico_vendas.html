@@ -1,0 +1,22 @@
+<!-- grafico_vendas.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráficos de Vendas</title>
+</head>
+<body>
+    <h1>Gráficos de Vendas</h1>
+    
+    <h2>Gráfico de Receita por Produto</h2>
+    <img src="data:image/png;base64,{{ grafico_receita }}" alt="Gráfico de Receita por Produto">
+    
+    <h2>Evolução das Vendas</h2>
+    <img src="data:image/png;base64,{{ evolucao }}" alt="Evolução das Vendas">
+    
+    <a href="{% url 'analise_vendas' %}">Voltar para Análise de Vendas</a>
+    <a href="{% url 'home' %}">Voltar para Página Inicial</a>
+    <a href="{% url 'exportar_pdf' %}">Exportar Relatório PDF</a>
+
+</body>
+</html>

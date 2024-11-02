@@ -1,0 +1,65 @@
+<form method="GET" action="{% url 'listagem' %}">
+    <label for="data_inicial">Data Inicial:</label>
+    <input type="date" name="data_inicial" id="data_inicial" value="{{ data_inicial }}">
+
+    <label for="data_final">Data Final:</label>
+    <input type="date" name="data_final" id="data_final" value="{{ data_final }}">
+
+    <label for="produto">Produto:</label>
+    <input type="text" name="produto" id="produto" value="{{ produto }}">
+
+    <label for="ordenacao">Ordenar por:</label>
+    <select name="ordenacao" id="ordenacao">
+        <option value="data" {% if ordenacao == 'data' %}selected{% endif %}>Data</option>
+        <option value="valor_total" {% if ordenacao == 'valor_total' %}selected{% endif %}>Valor Total</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade Vendida</th>
+            <th>Preço Unitário</th>
+            <th>Preço Total</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for venda in vendas %}
+        <tr>
+            <td>{{ venda.produto }}</td>
+            <td>{{ venda.quantidade_vendida }}</td>
+            <td>{{ venda.preco_unitario }}</td>
+            <td>{{ venda.preco_total }}</td>
+            <td>{{ venda.data }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Nenhuma venda encontrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if vendas.has_previous %}
+            <a href="?page=1&data_inicial={{ data_inicial }}&data_final={{ data_final }}&produto={{ produto }}&ordenacao={{ ordenacao }}">« primeira</a>
+            <a href="?page={{ vendas.previous_page_number }}&data_inicial={{ data_inicial }}&data_final={{ data_final }}&produto={{ produto }}&ordenacao={{ ordenacao }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ vendas.number }} de {{ vendas.paginator.num_pages }}.
+        </span>
+
+        {% if vendas.has_next %}
+            <a href="?page={{ vendas.next_page_number }}&data_inicial={{ data_inicial }}&data_final={{ data_final }}&produto={{ produto }}&ordenacao={{ ordenacao }}">próxima</a>
+            <a href="?page={{ vendas.paginator.num_pages }}&data_inicial={{ data_inicial }}&data_final={{ data_final }}&produto={{ produto }}&ordenacao={{ ordenacao }}">última »</a>
+        {% endif %}
+    </span>
+</div>
+
+<a href="{% url 'home' %}">Voltar para Página Inicial</a>

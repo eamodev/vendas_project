@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+</head>
+<body>
+    <h1>Página Inicial</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'upload_csv' %}">Upload CSV</a></li>
+            <li><a href="{% url 'listagem' %}">Listagem</a></li>
+            <li><a href="{% url 'analise_vendas' %}">Análise de Vendas</a></li>
+            <li><a href="{% url 'grafico_vendas' %}">Gráfico de Vendas</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
