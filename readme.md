@@ -17,7 +17,7 @@ Antes de começar, verifique se você tem os seguintes requisitos instalados:
 
 1. **Clone o repositório:**
 
-   git clone https://github.com/seu_usuario/seu_repositorio.git
+   git clone https://github.com/eamodev/vendas_project
    cd endereco_do_repositorio
 
 2. **Crie um ambiente virtual:**
